@@ -68,27 +68,11 @@ async function dlt() {
 
                 await new Promise((resolve) => setTimeout(resolve, 100));
             }
-            console.log('you look beautiful in white')
         }
 
         await infiniteScroll(page);
 
 
-        while (true){
-
-
-            const elements = await page.$$('div.x78zum5.xdt5ytf.x1iyjqo2.xs83m0k.x1xzczws.x6ikm8r.x1rife3k.x1n2onr6.xh8yej3 div.x1n2onr6 div.x78zum5.xdt5ytf.x1n2onr6:has(span.xzpqnlu.x1hyvwdk.xjm9jq1.x6ikm8r.x10wlt62.x10l6tqk.x1i1rx1s):has(div.x78zum5.x1iyjqo2.xs83m0k.xeuugli):has(div.x6prxxf.x1fc57z9.x1yc453h.x126k92a.xzsf02u):has(div[role="button"][aria-label="Double tap to like"].x1qjc9v5.x972fbf.xcfux6l.x1qhh985.xm0m39n.x9f619.x78zum5.xdt5ytf.x2lah0s.xk390pu.xdj266r.x11i5rnm.xat24cr.x1mh8g0r.xexx8yu.x4uap5.x18d9i69.xkhd6sd.x1n2onr6.xggy1nq.x11njtxf');
-            if(elements){
-                for (let element of elements) {
-                    await element.evaluate(el => el.remove());
-
-            }} else
-                {
-                    break
-                }
-
-
-        }
         console.log(texts.length)
         const texts = await page.$$('div.x6prxxf.x1fc57z9.x1yc453h.x126k92a.x14ctfv');}
 
