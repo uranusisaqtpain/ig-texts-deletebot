@@ -3,7 +3,7 @@ require('dotenv').config();
 module.exports = {
     username: process.env.USERNAME,
     password: process.env.PASSWORD,
-    chatbox: process.env.TEPY,
+    chatbox: process.env.CHATBOX,
     usernamefield: 'input[name="username"]',
     passwordfield: 'input[name="password"]',
     loginbutton: 'button[type="submit"]',
