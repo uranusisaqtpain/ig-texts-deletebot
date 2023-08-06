@@ -120,8 +120,12 @@ async function dlt() {
                             const unsend = await page.waitForXPath(vars.unsend);
                             await unsend.click();
                             await page.waitForTimeout(100);
-                            await page.locator('div[role="dialog"]');
-                            const button = await page.waitForXPath('//button[text()=\'Unsend\']');
+                            await page.locator('div[role="dialog"]',{
+                                timeout: 300
+                            });
+                            const button = await page.waitForXPath('//button[text()=\'Unsend\']',{
+                                timeout: 300
+                            });
                             await button.click();
                             await page.waitForTimeout(100);
                             await new Promise((resolve) => setTimeout(resolve, 500));
@@ -175,8 +179,12 @@ async function dlt() {
                             const unsend = await page.waitForXPath(vars.unsend);
                             await unsend.click();
                             await page.waitForTimeout(100);
-                            await page.locator('div[role="dialog"]');
-                            const button = await page.waitForXPath('//button[text()=\'Unsend\']');
+                            await page.locator('div[role="dialog"]',{
+                                timeout: 300
+                            });
+                            const button = await page.waitForXPath('//button[text()=\'Unsend\']',{
+                                timeout: 300
+                            });
                             await button.click();
                             await page.waitForTimeout(100);
                             await new Promise((resolve) => setTimeout(resolve, 500));
