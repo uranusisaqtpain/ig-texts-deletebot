@@ -8,6 +8,7 @@ const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 const {
     threeDots
 } = require("./vars");
+const ca = require("moment/locale/ca");
 async function dlt() {
 
 
@@ -95,73 +96,111 @@ async function dlt() {
 
         for (let text of texts) {
             try {
-                await text.hover();
-                await text.hover();
-                await text.hover();
-                await text.hover();
-                await text.hover();
-                await text.hover();
-                await text.hover();
-                await text.hover();
-                await text.hover();
-                await text.hover();
-                await text.hover();
-                await text.hover();
-                await text.hover();
-                const threeDots = await page.waitForSelector(vars.threeDots);
-                await threeDots.click();
-                await page.waitForTimeout(100);
-                const unsend = await page.waitForXPath(vars.unsend);
-                await unsend.click();
-                await page.waitForTimeout(100);
-                await page.locator('div[role="dialog"]');
-                const button = await page.waitForXPath('//button[text()=\'Unsend\']');
-                await button.click();
-                await page.waitForTimeout(100);
-                await new Promise((resolve) => setTimeout(resolve, 500));
-            } catch (error) {
-                if (error.message === 'Node is either not clickable or not an HTMLElement') {
-                    console.log('Skipping text.')
-                    continue;
-                } else {
-                    throw error;
+                try {
+                    try {
+                        try {
+                            await text.hover();
+                            await text.hover();
+                            await text.hover();
+                            await text.hover();
+                            await text.hover();
+                            await text.hover();
+                            await text.hover();
+                            await text.hover();
+                            await text.hover();
+                            await text.hover();
+                            await text.hover();
+                            await text.hover();
+                            await text.hover();
+                            const threeDots = await page.waitForSelector(vars.threeDots, {
+                                timeout: 300
+                            });
+                            await threeDots.click();
+                            await page.waitForTimeout(100);
+                            const unsend = await page.waitForXPath(vars.unsend);
+                            await unsend.click();
+                            await page.waitForTimeout(100);
+                            await page.locator('div[role="dialog"]');
+                            const button = await page.waitForXPath('//button[text()=\'Unsend\']');
+                            await button.click();
+                            await page.waitForTimeout(100);
+                            await new Promise((resolve) => setTimeout(resolve, 500));
+                        } catch (error) {
+                            if (error.message === 'Node is either not clickable or not an HTMLElement' ||
+                                error.message === 'Error: Node is detached from document' ||
+                                error.message === 'Node is detached from document') {
+                                console.log('Skipping text.');
+                                console.log(error.message);
+                                continue;
+                            } else {
+                                throw error;
+                            }
+                            continue;
+                        }
+                    } catch (e) {
+                        continue;
+                    }
+                } catch (Error) {
+                    continue
                 }
+            } catch (TimeoutError) {
+                continue
             }
+
         }
         const images = await page.$$('div.x78zum5.x1iyjqo2.xs83m0k.xeuugli.x15zctf7');
         for (let image of images) {
             try {
-                await image.hover();
-                await image.hover()
-                await image.hover()
-                await image.hover()
-                await image.hover()
-                await image.hover()
-                await image.hover()
-                await image.hover()
-                await image.hover()
-                await image.hover()
-                await image.hover()
-                await image.hover()
-                await image.hover()
-                const threeDots = await page.waitForSelector(vars.threeDots);
-                await threeDots.click();
-                await page.waitForTimeout(100);
-                const unsend = await page.waitForXPath(vars.unsend);
-                await unsend.click();
-                await page.waitForTimeout(100);
-                await page.locator('div[role="dialog"]');
-                const button = await page.waitForXPath('//button[text()=\'Unsend\']');
-                await button.click();
-                await page.waitForTimeout(100);
-                await new Promise((resolve) => setTimeout(resolve, 500));
-            } catch (error) {
-                if (error.message === 'Node is either not clickable or not an HTMLElement') {
-                    console.log('Skipping text.')
+                try {
+                    try {
+                        try {
+                            await image.hover();
+                            await image.hover()
+                            await image.hover()
+                            await image.hover()
+                            await image.hover()
+                            await image.hover()
+                            await image.hover()
+                            await image.hover()
+                            await image.hover()
+                            await image.hover()
+                            await image.hover()
+                            await image.hover()
+                            await image.hover()
+                            const threeDots = await page.waitForSelector(vars.threeDots, {
+                                timeout: 300
+                            });
+                            await threeDots.click();
+                            await page.waitForTimeout(100);
+                            const unsend = await page.waitForXPath(vars.unsend);
+                            await unsend.click();
+                            await page.waitForTimeout(100);
+                            await page.locator('div[role="dialog"]');
+                            const button = await page.waitForXPath('//button[text()=\'Unsend\']');
+                            await button.click();
+                            await page.waitForTimeout(100);
+                            await new Promise((resolve) => setTimeout(resolve, 500));
+                        } catch (error) {
+                            if (error.message === 'Node is either not clickable or not an HTMLElement' ||
+                                error.message === 'Error: Node is detached from document' ||
+                                error.message === 'Node is detached from document') {
+                                console.log('Skipping text.');
+                                console.log(error.message);
+                                continue;
+                            } else {
+                                throw error;
+                            }
+                            continue;
+                        }
+                    } catch (e) {
+                        continue;
+                    }
+                } catch (Error) {
                     continue;
-                } else {
-                    throw error;
                 }
+            } catch (TimeoutError) {
+                continue;
+
             }
         }
 
